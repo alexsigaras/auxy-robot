@@ -1,0 +1,932 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="HumanoidService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://kinect-pc:31337/HumanoidService?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://kinect-pc:31337/HumanoidService?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://kinect-pc:31337/HumanoidService?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/HumanoidRobot" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IHumanoidService_RightArmRotateRight_InputMessage">
+    <wsdl:part name="parameters" element="tns:RightArmRotateRight" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_RightArmRotateRight_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RightArmRotateRightResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_RightHandshake_InputMessage">
+    <wsdl:part name="parameters" element="tns:RightHandshake" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_RightHandshake_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RightHandshakeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_RightArmStop_InputMessage">
+    <wsdl:part name="parameters" element="tns:RightArmStop" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_RightArmStop_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RightArmStopResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_iRobotConnect_InputMessage">
+    <wsdl:part name="parameters" element="tns:iRobotConnect" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_iRobotConnect_OutputMessage">
+    <wsdl:part name="parameters" element="tns:iRobotConnectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_iRobotDisconnect_InputMessage">
+    <wsdl:part name="parameters" element="tns:iRobotDisconnect" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_iRobotDisconnect_OutputMessage">
+    <wsdl:part name="parameters" element="tns:iRobotDisconnectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_iRobotMoveForward_InputMessage">
+    <wsdl:part name="parameters" element="tns:iRobotMoveForward" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_iRobotMoveForward_OutputMessage">
+    <wsdl:part name="parameters" element="tns:iRobotMoveForwardResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_iRobotMoveBackward_InputMessage">
+    <wsdl:part name="parameters" element="tns:iRobotMoveBackward" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_iRobotMoveBackward_OutputMessage">
+    <wsdl:part name="parameters" element="tns:iRobotMoveBackwardResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_iRobotTurnLeft_InputMessage">
+    <wsdl:part name="parameters" element="tns:iRobotTurnLeft" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_iRobotTurnLeft_OutputMessage">
+    <wsdl:part name="parameters" element="tns:iRobotTurnLeftResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_iRobotTurnRight_InputMessage">
+    <wsdl:part name="parameters" element="tns:iRobotTurnRight" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_iRobotTurnRight_OutputMessage">
+    <wsdl:part name="parameters" element="tns:iRobotTurnRightResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_iRobotStop_InputMessage">
+    <wsdl:part name="parameters" element="tns:iRobotStop" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_iRobotStop_OutputMessage">
+    <wsdl:part name="parameters" element="tns:iRobotStopResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_KinectPowerOn_InputMessage">
+    <wsdl:part name="parameters" element="tns:KinectPowerOn" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_KinectPowerOn_OutputMessage">
+    <wsdl:part name="parameters" element="tns:KinectPowerOnResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_KinectPowerOff_InputMessage">
+    <wsdl:part name="parameters" element="tns:KinectPowerOff" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_KinectPowerOff_OutputMessage">
+    <wsdl:part name="parameters" element="tns:KinectPowerOffResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_KinectTiltUp_InputMessage">
+    <wsdl:part name="parameters" element="tns:KinectTiltUp" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_KinectTiltUp_OutputMessage">
+    <wsdl:part name="parameters" element="tns:KinectTiltUpResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_KinectTiltDown_InputMessage">
+    <wsdl:part name="parameters" element="tns:KinectTiltDown" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_KinectTiltDown_OutputMessage">
+    <wsdl:part name="parameters" element="tns:KinectTiltDownResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_KinectTiltAngle_InputMessage">
+    <wsdl:part name="parameters" element="tns:KinectTiltAngle" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_KinectTiltAngle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:KinectTiltAngleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_KinectActivateDepthMode_InputMessage">
+    <wsdl:part name="parameters" element="tns:KinectActivateDepthMode" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_KinectActivateDepthMode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:KinectActivateDepthModeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_KinectActivateColorMode_InputMessage">
+    <wsdl:part name="parameters" element="tns:KinectActivateColorMode" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_KinectActivateColorMode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:KinectActivateColorModeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_KinectTakeScreenshot_InputMessage">
+    <wsdl:part name="parameters" element="tns:KinectTakeScreenshot" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_KinectTakeScreenshot_OutputMessage">
+    <wsdl:part name="parameters" element="tns:KinectTakeScreenshotResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_KinectStuff_InputMessage">
+    <wsdl:part name="parameters" element="tns:KinectStuff" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_KinectStuff_OutputMessage">
+    <wsdl:part name="parameters" element="tns:KinectStuffResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_FlashEyes_InputMessage">
+    <wsdl:part name="parameters" element="tns:FlashEyes" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_FlashEyes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FlashEyesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_Dance_InputMessage">
+    <wsdl:part name="parameters" element="tns:Dance" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_Dance_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_Follow_InputMessage">
+    <wsdl:part name="parameters" element="tns:Follow" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_Follow_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FollowResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_KillAllSwitch_InputMessage">
+    <wsdl:part name="parameters" element="tns:KillAllSwitch" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_KillAllSwitch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:KillAllSwitchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_LeftLightsOn_InputMessage">
+    <wsdl:part name="parameters" element="tns:LeftLightsOn" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_LeftLightsOn_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LeftLightsOnResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_LeftLightsOff_InputMessage">
+    <wsdl:part name="parameters" element="tns:LeftLightsOff" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_LeftLightsOff_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LeftLightsOffResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_LeftGrippersOpen_InputMessage">
+    <wsdl:part name="parameters" element="tns:LeftGrippersOpen" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_LeftGrippersOpen_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LeftGrippersOpenResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_LeftGrippersClose_InputMessage">
+    <wsdl:part name="parameters" element="tns:LeftGrippersClose" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_LeftGrippersClose_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LeftGrippersCloseResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_LeftGrippersUp_InputMessage">
+    <wsdl:part name="parameters" element="tns:LeftGrippersUp" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_LeftGrippersUp_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LeftGrippersUpResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_LeftGrippersDown_InputMessage">
+    <wsdl:part name="parameters" element="tns:LeftGrippersDown" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_LeftGrippersDown_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LeftGrippersDownResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_LeftElbowUp_InputMessage">
+    <wsdl:part name="parameters" element="tns:LeftElbowUp" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_LeftElbowUp_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LeftElbowUpResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_LeftElbowDown_InputMessage">
+    <wsdl:part name="parameters" element="tns:LeftElbowDown" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_LeftElbowDown_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LeftElbowDownResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_LeftArmUp_InputMessage">
+    <wsdl:part name="parameters" element="tns:LeftArmUp" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_LeftArmUp_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LeftArmUpResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_LeftArmDown_InputMessage">
+    <wsdl:part name="parameters" element="tns:LeftArmDown" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_LeftArmDown_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LeftArmDownResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_LeftArmRotateLeft_InputMessage">
+    <wsdl:part name="parameters" element="tns:LeftArmRotateLeft" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_LeftArmRotateLeft_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LeftArmRotateLeftResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_LeftArmRotateRight_InputMessage">
+    <wsdl:part name="parameters" element="tns:LeftArmRotateRight" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_LeftArmRotateRight_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LeftArmRotateRightResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_LeftHandshake_InputMessage">
+    <wsdl:part name="parameters" element="tns:LeftHandshake" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_LeftHandshake_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LeftHandshakeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_LeftArmStop_InputMessage">
+    <wsdl:part name="parameters" element="tns:LeftArmStop" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_LeftArmStop_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LeftArmStopResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_RightLightsOn_InputMessage">
+    <wsdl:part name="parameters" element="tns:RightLightsOn" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_RightLightsOn_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RightLightsOnResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_RightLightsOff_InputMessage">
+    <wsdl:part name="parameters" element="tns:RightLightsOff" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_RightLightsOff_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RightLightsOffResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_RightGrippersOpen_InputMessage">
+    <wsdl:part name="parameters" element="tns:RightGrippersOpen" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_RightGrippersOpen_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RightGrippersOpenResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_RightGrippersClose_InputMessage">
+    <wsdl:part name="parameters" element="tns:RightGrippersClose" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_RightGrippersClose_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RightGrippersCloseResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_RightGrippersUp_InputMessage">
+    <wsdl:part name="parameters" element="tns:RightGrippersUp" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_RightGrippersUp_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RightGrippersUpResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_RightGrippersDown_InputMessage">
+    <wsdl:part name="parameters" element="tns:RightGrippersDown" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_RightGrippersDown_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RightGrippersDownResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_RightElbowUp_InputMessage">
+    <wsdl:part name="parameters" element="tns:RightElbowUp" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_RightElbowUp_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RightElbowUpResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_RightElbowDown_InputMessage">
+    <wsdl:part name="parameters" element="tns:RightElbowDown" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_RightElbowDown_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RightElbowDownResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_RightArmUp_InputMessage">
+    <wsdl:part name="parameters" element="tns:RightArmUp" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_RightArmUp_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RightArmUpResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_RightArmDown_InputMessage">
+    <wsdl:part name="parameters" element="tns:RightArmDown" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_RightArmDown_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RightArmDownResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_RightArmRotateLeft_InputMessage">
+    <wsdl:part name="parameters" element="tns:RightArmRotateLeft" />
+  </wsdl:message>
+  <wsdl:message name="IHumanoidService_RightArmRotateLeft_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RightArmRotateLeftResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IHumanoidService">
+    <wsdl:operation name="RightArmRotateRight">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHumanoidService/RightArmRotateRight" message="tns:IHumanoidService_RightArmRotateRight_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHumanoidService/RightArmRotateRightResponse" message="tns:IHumanoidService_RightArmRotateRight_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RightHandshake">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHumanoidService/RightHandshake" message="tns:IHumanoidService_RightHandshake_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHumanoidService/RightHandshakeResponse" message="tns:IHumanoidService_RightHandshake_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RightArmStop">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHumanoidService/RightArmStop" message="tns:IHumanoidService_RightArmStop_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHumanoidService/RightArmStopResponse" message="tns:IHumanoidService_RightArmStop_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="iRobotConnect">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHumanoidService/iRobotConnect" message="tns:IHumanoidService_iRobotConnect_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHumanoidService/iRobotConnectResponse" message="tns:IHumanoidService_iRobotConnect_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="iRobotDisconnect">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHumanoidService/iRobotDisconnect" message="tns:IHumanoidService_iRobotDisconnect_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHumanoidService/iRobotDisconnectResponse" message="tns:IHumanoidService_iRobotDisconnect_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="iRobotMoveForward">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHumanoidService/iRobotMoveForward" message="tns:IHumanoidService_iRobotMoveForward_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHumanoidService/iRobotMoveForwardResponse" message="tns:IHumanoidService_iRobotMoveForward_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="iRobotMoveBackward">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHumanoidService/iRobotMoveBackward" message="tns:IHumanoidService_iRobotMoveBackward_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHumanoidService/iRobotMoveBackwardResponse" message="tns:IHumanoidService_iRobotMoveBackward_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="iRobotTurnLeft">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHumanoidService/iRobotTurnLeft" message="tns:IHumanoidService_iRobotTurnLeft_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHumanoidService/iRobotTurnLeftResponse" message="tns:IHumanoidService_iRobotTurnLeft_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="iRobotTurnRight">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHumanoidService/iRobotTurnRight" message="tns:IHumanoidService_iRobotTurnRight_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHumanoidService/iRobotTurnRightResponse" message="tns:IHumanoidService_iRobotTurnRight_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="iRobotStop">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHumanoidService/iRobotStop" message="tns:IHumanoidService_iRobotStop_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHumanoidService/iRobotStopResponse" message="tns:IHumanoidService_iRobotStop_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="KinectPowerOn">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHumanoidService/KinectPowerOn" message="tns:IHumanoidService_KinectPowerOn_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHumanoidService/KinectPowerOnResponse" message="tns:IHumanoidService_KinectPowerOn_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="KinectPowerOff">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHumanoidService/KinectPowerOff" message="tns:IHumanoidService_KinectPowerOff_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHumanoidService/KinectPowerOffResponse" message="tns:IHumanoidService_KinectPowerOff_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="KinectTiltUp">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHumanoidService/KinectTiltUp" message="tns:IHumanoidService_KinectTiltUp_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHumanoidService/KinectTiltUpResponse" message="tns:IHumanoidService_KinectTiltUp_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="KinectTiltDown">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHumanoidService/KinectTiltDown" message="tns:IHumanoidService_KinectTiltDown_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHumanoidService/KinectTiltDownResponse" message="tns:IHumanoidService_KinectTiltDown_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="KinectTiltAngle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHumanoidService/KinectTiltAngle" message="tns:IHumanoidService_KinectTiltAngle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHumanoidService/KinectTiltAngleResponse" message="tns:IHumanoidService_KinectTiltAngle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="KinectActivateDepthMode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHumanoidService/KinectActivateDepthMode" message="tns:IHumanoidService_KinectActivateDepthMode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHumanoidService/KinectActivateDepthModeResponse" message="tns:IHumanoidService_KinectActivateDepthMode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="KinectActivateColorMode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHumanoidService/KinectActivateColorMode" message="tns:IHumanoidService_KinectActivateColorMode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHumanoidService/KinectActivateColorModeResponse" message="tns:IHumanoidService_KinectActivateColorMode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="KinectTakeScreenshot">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHumanoidService/KinectTakeScreenshot" message="tns:IHumanoidService_KinectTakeScreenshot_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHumanoidService/KinectTakeScreenshotResponse" message="tns:IHumanoidService_KinectTakeScreenshot_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="KinectStuff">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHumanoidService/KinectStuff" message="tns:IHumanoidService_KinectStuff_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHumanoidService/KinectStuffResponse" message="tns:IHumanoidService_KinectStuff_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FlashEyes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHumanoidService/FlashEyes" message="tns:IHumanoidService_FlashEyes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHumanoidService/FlashEyesResponse" message="tns:IHumanoidService_FlashEyes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Dance">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHumanoidService/Dance" message="tns:IHumanoidService_Dance_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHumanoidService/DanceResponse" message="tns:IHumanoidService_Dance_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Follow">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHumanoidService/Follow" message="tns:IHumanoidService_Follow_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHumanoidService/FollowResponse" message="tns:IHumanoidService_Follow_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="KillAllSwitch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHumanoidService/KillAllSwitch" message="tns:IHumanoidService_KillAllSwitch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHumanoidService/KillAllSwitchResponse" message="tns:IHumanoidService_KillAllSwitch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LeftLightsOn">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHumanoidService/LeftLightsOn" message="tns:IHumanoidService_LeftLightsOn_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHumanoidService/LeftLightsOnResponse" message="tns:IHumanoidService_LeftLightsOn_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LeftLightsOff">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHumanoidService/LeftLightsOff" message="tns:IHumanoidService_LeftLightsOff_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHumanoidService/LeftLightsOffResponse" message="tns:IHumanoidService_LeftLightsOff_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LeftGrippersOpen">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHumanoidService/LeftGrippersOpen" message="tns:IHumanoidService_LeftGrippersOpen_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHumanoidService/LeftGrippersOpenResponse" message="tns:IHumanoidService_LeftGrippersOpen_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LeftGrippersClose">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHumanoidService/LeftGrippersClose" message="tns:IHumanoidService_LeftGrippersClose_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHumanoidService/LeftGrippersCloseResponse" message="tns:IHumanoidService_LeftGrippersClose_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LeftGrippersUp">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHumanoidService/LeftGrippersUp" message="tns:IHumanoidService_LeftGrippersUp_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHumanoidService/LeftGrippersUpResponse" message="tns:IHumanoidService_LeftGrippersUp_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LeftGrippersDown">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHumanoidService/LeftGrippersDown" message="tns:IHumanoidService_LeftGrippersDown_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHumanoidService/LeftGrippersDownResponse" message="tns:IHumanoidService_LeftGrippersDown_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LeftElbowUp">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHumanoidService/LeftElbowUp" message="tns:IHumanoidService_LeftElbowUp_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHumanoidService/LeftElbowUpResponse" message="tns:IHumanoidService_LeftElbowUp_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LeftElbowDown">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHumanoidService/LeftElbowDown" message="tns:IHumanoidService_LeftElbowDown_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHumanoidService/LeftElbowDownResponse" message="tns:IHumanoidService_LeftElbowDown_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LeftArmUp">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHumanoidService/LeftArmUp" message="tns:IHumanoidService_LeftArmUp_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHumanoidService/LeftArmUpResponse" message="tns:IHumanoidService_LeftArmUp_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LeftArmDown">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHumanoidService/LeftArmDown" message="tns:IHumanoidService_LeftArmDown_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHumanoidService/LeftArmDownResponse" message="tns:IHumanoidService_LeftArmDown_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LeftArmRotateLeft">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHumanoidService/LeftArmRotateLeft" message="tns:IHumanoidService_LeftArmRotateLeft_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHumanoidService/LeftArmRotateLeftResponse" message="tns:IHumanoidService_LeftArmRotateLeft_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LeftArmRotateRight">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHumanoidService/LeftArmRotateRight" message="tns:IHumanoidService_LeftArmRotateRight_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHumanoidService/LeftArmRotateRightResponse" message="tns:IHumanoidService_LeftArmRotateRight_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LeftHandshake">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHumanoidService/LeftHandshake" message="tns:IHumanoidService_LeftHandshake_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHumanoidService/LeftHandshakeResponse" message="tns:IHumanoidService_LeftHandshake_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LeftArmStop">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHumanoidService/LeftArmStop" message="tns:IHumanoidService_LeftArmStop_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHumanoidService/LeftArmStopResponse" message="tns:IHumanoidService_LeftArmStop_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RightLightsOn">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHumanoidService/RightLightsOn" message="tns:IHumanoidService_RightLightsOn_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHumanoidService/RightLightsOnResponse" message="tns:IHumanoidService_RightLightsOn_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RightLightsOff">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHumanoidService/RightLightsOff" message="tns:IHumanoidService_RightLightsOff_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHumanoidService/RightLightsOffResponse" message="tns:IHumanoidService_RightLightsOff_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RightGrippersOpen">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHumanoidService/RightGrippersOpen" message="tns:IHumanoidService_RightGrippersOpen_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHumanoidService/RightGrippersOpenResponse" message="tns:IHumanoidService_RightGrippersOpen_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RightGrippersClose">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHumanoidService/RightGrippersClose" message="tns:IHumanoidService_RightGrippersClose_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHumanoidService/RightGrippersCloseResponse" message="tns:IHumanoidService_RightGrippersClose_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RightGrippersUp">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHumanoidService/RightGrippersUp" message="tns:IHumanoidService_RightGrippersUp_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHumanoidService/RightGrippersUpResponse" message="tns:IHumanoidService_RightGrippersUp_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RightGrippersDown">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHumanoidService/RightGrippersDown" message="tns:IHumanoidService_RightGrippersDown_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHumanoidService/RightGrippersDownResponse" message="tns:IHumanoidService_RightGrippersDown_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RightElbowUp">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHumanoidService/RightElbowUp" message="tns:IHumanoidService_RightElbowUp_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHumanoidService/RightElbowUpResponse" message="tns:IHumanoidService_RightElbowUp_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RightElbowDown">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHumanoidService/RightElbowDown" message="tns:IHumanoidService_RightElbowDown_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHumanoidService/RightElbowDownResponse" message="tns:IHumanoidService_RightElbowDown_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RightArmUp">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHumanoidService/RightArmUp" message="tns:IHumanoidService_RightArmUp_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHumanoidService/RightArmUpResponse" message="tns:IHumanoidService_RightArmUp_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RightArmDown">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHumanoidService/RightArmDown" message="tns:IHumanoidService_RightArmDown_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHumanoidService/RightArmDownResponse" message="tns:IHumanoidService_RightArmDown_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RightArmRotateLeft">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHumanoidService/RightArmRotateLeft" message="tns:IHumanoidService_RightArmRotateLeft_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHumanoidService/RightArmRotateLeftResponse" message="tns:IHumanoidService_RightArmRotateLeft_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IHumanoidService" type="tns:IHumanoidService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RightArmRotateRight">
+      <soap:operation soapAction="http://tempuri.org/IHumanoidService/RightArmRotateRight" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RightHandshake">
+      <soap:operation soapAction="http://tempuri.org/IHumanoidService/RightHandshake" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RightArmStop">
+      <soap:operation soapAction="http://tempuri.org/IHumanoidService/RightArmStop" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="iRobotConnect">
+      <soap:operation soapAction="http://tempuri.org/IHumanoidService/iRobotConnect" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="iRobotDisconnect">
+      <soap:operation soapAction="http://tempuri.org/IHumanoidService/iRobotDisconnect" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="iRobotMoveForward">
+      <soap:operation soapAction="http://tempuri.org/IHumanoidService/iRobotMoveForward" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="iRobotMoveBackward">
+      <soap:operation soapAction="http://tempuri.org/IHumanoidService/iRobotMoveBackward" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="iRobotTurnLeft">
+      <soap:operation soapAction="http://tempuri.org/IHumanoidService/iRobotTurnLeft" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="iRobotTurnRight">
+      <soap:operation soapAction="http://tempuri.org/IHumanoidService/iRobotTurnRight" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="iRobotStop">
+      <soap:operation soapAction="http://tempuri.org/IHumanoidService/iRobotStop" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KinectPowerOn">
+      <soap:operation soapAction="http://tempuri.org/IHumanoidService/KinectPowerOn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KinectPowerOff">
+      <soap:operation soapAction="http://tempuri.org/IHumanoidService/KinectPowerOff" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KinectTiltUp">
+      <soap:operation soapAction="http://tempuri.org/IHumanoidService/KinectTiltUp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KinectTiltDown">
+      <soap:operation soapAction="http://tempuri.org/IHumanoidService/KinectTiltDown" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KinectTiltAngle">
+      <soap:operation soapAction="http://tempuri.org/IHumanoidService/KinectTiltAngle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KinectActivateDepthMode">
+      <soap:operation soapAction="http://tempuri.org/IHumanoidService/KinectActivateDepthMode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KinectActivateColorMode">
+      <soap:operation soapAction="http://tempuri.org/IHumanoidService/KinectActivateColorMode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KinectTakeScreenshot">
+      <soap:operation soapAction="http://tempuri.org/IHumanoidService/KinectTakeScreenshot" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KinectStuff">
+      <soap:operation soapAction="http://tempuri.org/IHumanoidService/KinectStuff" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FlashEyes">
+      <soap:operation soapAction="http://tempuri.org/IHumanoidService/FlashEyes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Dance">
+      <soap:operation soapAction="http://tempuri.org/IHumanoidService/Dance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Follow">
+      <soap:operation soapAction="http://tempuri.org/IHumanoidService/Follow" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KillAllSwitch">
+      <soap:operation soapAction="http://tempuri.org/IHumanoidService/KillAllSwitch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LeftLightsOn">
+      <soap:operation soapAction="http://tempuri.org/IHumanoidService/LeftLightsOn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LeftLightsOff">
+      <soap:operation soapAction="http://tempuri.org/IHumanoidService/LeftLightsOff" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LeftGrippersOpen">
+      <soap:operation soapAction="http://tempuri.org/IHumanoidService/LeftGrippersOpen" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LeftGrippersClose">
+      <soap:operation soapAction="http://tempuri.org/IHumanoidService/LeftGrippersClose" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LeftGrippersUp">
+      <soap:operation soapAction="http://tempuri.org/IHumanoidService/LeftGrippersUp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LeftGrippersDown">
+      <soap:operation soapAction="http://tempuri.org/IHumanoidService/LeftGrippersDown" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LeftElbowUp">
+      <soap:operation soapAction="http://tempuri.org/IHumanoidService/LeftElbowUp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LeftElbowDown">
+      <soap:operation soapAction="http://tempuri.org/IHumanoidService/LeftElbowDown" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LeftArmUp">
+      <soap:operation soapAction="http://tempuri.org/IHumanoidService/LeftArmUp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LeftArmDown">
+      <soap:operation soapAction="http://tempuri.org/IHumanoidService/LeftArmDown" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LeftArmRotateLeft">
+      <soap:operation soapAction="http://tempuri.org/IHumanoidService/LeftArmRotateLeft" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LeftArmRotateRight">
+      <soap:operation soapAction="http://tempuri.org/IHumanoidService/LeftArmRotateRight" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LeftHandshake">
+      <soap:operation soapAction="http://tempuri.org/IHumanoidService/LeftHandshake" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LeftArmStop">
+      <soap:operation soapAction="http://tempuri.org/IHumanoidService/LeftArmStop" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RightLightsOn">
+      <soap:operation soapAction="http://tempuri.org/IHumanoidService/RightLightsOn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RightLightsOff">
+      <soap:operation soapAction="http://tempuri.org/IHumanoidService/RightLightsOff" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RightGrippersOpen">
+      <soap:operation soapAction="http://tempuri.org/IHumanoidService/RightGrippersOpen" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RightGrippersClose">
+      <soap:operation soapAction="http://tempuri.org/IHumanoidService/RightGrippersClose" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RightGrippersUp">
+      <soap:operation soapAction="http://tempuri.org/IHumanoidService/RightGrippersUp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RightGrippersDown">
+      <soap:operation soapAction="http://tempuri.org/IHumanoidService/RightGrippersDown" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RightElbowUp">
+      <soap:operation soapAction="http://tempuri.org/IHumanoidService/RightElbowUp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RightElbowDown">
+      <soap:operation soapAction="http://tempuri.org/IHumanoidService/RightElbowDown" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RightArmUp">
+      <soap:operation soapAction="http://tempuri.org/IHumanoidService/RightArmUp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RightArmDown">
+      <soap:operation soapAction="http://tempuri.org/IHumanoidService/RightArmDown" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RightArmRotateLeft">
+      <soap:operation soapAction="http://tempuri.org/IHumanoidService/RightArmRotateLeft" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="HumanoidService">
+    <wsdl:port name="BasicHttpBinding_IHumanoidService" binding="tns:BasicHttpBinding_IHumanoidService">
+      <soap:address location="http://kinect-pc:31337/HumanoidService/endpoint" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

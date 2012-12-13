@@ -1,0 +1,127 @@
+﻿<Controls:MetroWindow x:Class="HumanoidRobot.Dashboard"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:Controls ="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
+        Title="Humanoid Robot Dashboard" Height="900" Width="1440"
+        WindowState="Maximized" ResizeMode="NoResize"
+        Loaded="WindowLoaded" Closing="WindowClosing" Icon="/HumanoidRobot;component/Images/CSCULogo.png">
+    <Window.Resources>
+        <ResourceDictionary>
+        <ResourceDictionary.MergedDictionaries>
+            <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colours.xaml" />
+            <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+            <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+            <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Blue.xaml" />
+            <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
+            <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.AnimatedTabControl.xaml" />
+        </ResourceDictionary.MergedDictionaries>
+        
+        <SolidColorBrush x:Key="MediumGreyBrush" Color="#ff6e6e6e"/>
+        <SolidColorBrush x:Key="LightGreyBrush" Color="#ffd2d2d2"/>
+        <SolidColorBrush x:Key="KinectPurpleBrush" Color="#ff52318f"/>
+        <SolidColorBrush x:Key="KinectBlueBrush" Color="#ff00BCF2"/>
+        <Style TargetType="{x:Type Image}">
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+        </Style>
+        <Style TargetType="{x:Type Button}" x:Key="SnapshotButton" >
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <StackPanel Orientation="Horizontal" Background="Transparent">
+                                <TextBlock x:Name="SnapText" Text="{TemplateBinding Content}" TextAlignment="Left"  VerticalAlignment="Center" Foreground="{StaticResource KinectPurpleBrush}" FontSize="15" />
+                                <Grid Margin="9,0,0,0">
+                                    <Image x:Name="SnapNormal" Source="Images\SnapNormal.png" Stretch="None" HorizontalAlignment="Center"/>
+                                    <Image x:Name="SnapHover" Source="Images\SnapHover.png" Stretch="None" HorizontalAlignment="Center" Visibility="Collapsed"/>
+                                </Grid>
+                            </StackPanel>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Visibility" Value="Collapsed" TargetName="SnapNormal"/>
+                                <Setter Property="Visibility" Value="Visible" TargetName="SnapHover"/>
+                                <Setter Property="Foreground" Value="{StaticResource KinectBlueBrush}" TargetName="SnapText"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        </ResourceDictionary>
+    </Window.Resources>
+    
+    <Grid Margin="10 0 10 0">
+        <Grid>
+            <Image Source="Images\Logo.png" Stretch="None" HorizontalAlignment="Left" Margin="553,31,0,0" Name="image1" VerticalAlignment="Top" />
+            <Image Source="Images\Status.png" Stretch="None" HorizontalAlignment="Left" Margin="685,21,0,0" Name="image2" VerticalAlignment="Top" />
+            <Controls:ToggleSwitch x:Name="LeftEyeLight" Header="Left Eye Light" OnLabel="ON" OffLabel="OFF" IsChecked="False" Checked="LeftEyeLight_Checked" Unchecked="LeftEyeLight_Unchecked" Margin="18,6,1266,737" />
+            <Controls:ToggleSwitch x:Name="RightEyeLight" Header="Right Eye Light" IsChecked="False" Margin="1260,6,6,737" OffLabel="OFF" OnLabel="ON" Checked="RightEyeLight_Checked" Unchecked="RightEyeLight_Unchecked" />
+            <Label Content="Claw" Height="45" HorizontalAlignment="Left" Margin="31,178,0,0" Name="LeftArmClawLbl" VerticalAlignment="Top" FontSize="24" Width="78" />
+            <Label Content="Elbow" Height="41" HorizontalAlignment="Left" Margin="27,293,0,0" Name="LeftArmElbowLbl" VerticalAlignment="Top" FontSize="24" Width="82" />
+            <Label Content="Arm" Height="41" HorizontalAlignment="Left" Margin="42,384,0,0" Name="LeftArmArmLbl" VerticalAlignment="Top" FontSize="24" Width="54" />
+            <Button Style="{DynamicResource MetroCircleButtonStyle}" Content="↺" Height="45" HorizontalAlignment="Left" Margin="18,466,0,0" Name="LeftArmArmRotateLeftBtn" VerticalAlignment="Top" Width="45" Click="LeftArmArmRotateLeftBtn_Click" />
+            <Button Style="{DynamicResource MetroCircleButtonStyle}" Content="↻" Height="45" HorizontalAlignment="Left" Margin="76,466,0,0" Name="LeftArmArmRotateRightBtn" VerticalAlignment="Top" Width="45" Click="LeftArmArmRotateRightBtn_Click" />
+            <Button Style="{DynamicResource MetroCircleButtonStyle}" Content="↑" Height="45" HorizontalAlignment="Left" Margin="18,427,0,0" Name="LeftArmArmMoveUpBtn" VerticalAlignment="Top" Width="45" Click="LeftArmArmMoveUpBtn_Click" />
+            <Button Style="{DynamicResource MetroCircleButtonStyle}" Content="↓" Height="45" HorizontalAlignment="Left" Margin="76,427,0,0" Name="LeftArmArmMoveDownBtn" VerticalAlignment="Top" Width="45" Click="LeftArmArmMoveDownBtn_Click" />
+            <Button Style="{DynamicResource MetroCircleButtonStyle}" Content="↑" Height="45" HorizontalAlignment="Left" Margin="18,238,0,0" Name="LeftArmClawMoveUpBtn" VerticalAlignment="Top" Width="45" Click="LeftArmClawMoveUpBtn_Click" />
+            <Button Style="{DynamicResource MetroCircleButtonStyle}" Content="↓" Height="45" HorizontalAlignment="Left" Margin="76,238,0,0" Name="LeftArmClawMoveDownBtn" VerticalAlignment="Top" Width="45" Click="LeftArmClawMoveDownBtn_Click" />
+            <Button Style="{DynamicResource MetroCircleButtonStyle}" Content="↑" Height="45" HorizontalAlignment="Left" Margin="18,343,0,0" Name="LeftArmElbowMoveUpBtn" VerticalAlignment="Top" Width="45" Click="LeftArmElbowMoveUpBtn_Click" />
+            <Button Style="{DynamicResource MetroCircleButtonStyle}" Content="↓" Height="45" HorizontalAlignment="Left" Margin="76,343,0,0" Name="LeftArmElbowMoveDownBtn" VerticalAlignment="Top" Width="45" Click="LeftArmElbowMoveDownBtn_Click" />
+            <Button Content="Open" Height="23" HorizontalAlignment="Left" Margin="142,235,0,0" Name="LeftArmClawOpenBtn" VerticalAlignment="Top" Width="75" Click="LeftArmClawOpenBtn_Click" />
+            <Button Content="Close" Height="23" HorizontalAlignment="Left" Margin="142,267,0,0" Name="LeftArmClawCloseBtn" VerticalAlignment="Top" Width="75" Click="LeftArmClawCloseBtn_Click" />
+            <Label Content="Seconds" Height="42" HorizontalAlignment="Left" Margin="22,130,0,0" Name="LeftArmSecondsLbl" VerticalAlignment="Top" FontSize="20" Width="87" />
+            <TextBox Height="23" HorizontalAlignment="Left" Margin="115,138,0,0" Name="LeftArmSecondsTxtBox" VerticalAlignment="Top" Width="46" Text="1" />
+            <TextBox Height="23" HorizontalAlignment="Left" Margin="18,711,0,0" Name="SpeechTxtBox" VerticalAlignment="Top" Width="174" />
+            <Label Content="Robot Voice AI" Height="40" HorizontalAlignment="Left" Margin="28,651,0,0" Name="RobotVoiceAiLbl" VerticalAlignment="Top" FontSize="24" Width="181" />
+            <Button Content="Speak" Height="23" HorizontalAlignment="Left" Margin="201,711,0,0" Name="SpeakBtn" VerticalAlignment="Top" Width="79" Click="SpeakBtn_Click" />
+            <Button Content="Save Log" Height="23" HorizontalAlignment="Left" Margin="294,754,0,0" Name="SaveLogBtn" VerticalAlignment="Top" Width="75" Click="SaveLogBtn_Click" FontFamily="se" />
+            <TextBox Height="59" HorizontalAlignment="Left" Margin="18,753,0,0" Name="ConversationTxtBox" VerticalAlignment="Top" Width="262" VerticalScrollBarVisibility="Auto" />
+            <Label Content="Claw" Height="41" HorizontalAlignment="Left" Margin="1290,192,0,0" Name="label1" VerticalAlignment="Top" FontSize="24" Width="67" />
+            <Label Content="Elbow" Height="50" HorizontalAlignment="Left" Margin="1290,313,0,0" Name="RightArmElbowLbl" VerticalAlignment="Top" FontSize="24" Width="86" />
+            <Label Content="Arm" Height="45" HorizontalAlignment="Left" Margin="1300,409,0,0" Name="label3" VerticalAlignment="Top" FontSize="24" Width="63" />
+            <Button Style="{DynamicResource MetroCircleButtonStyle}" Content="↺" Height="45" HorizontalAlignment="Left" Margin="1271,501,0,0" Name="RightArmArmRotateLeftBtn" VerticalAlignment="Top" Width="45" Click="RightArmArmRotateLeftBtn_Click" />
+            <Button Style="{DynamicResource MetroCircleButtonStyle}" Content="↻" Height="45" HorizontalAlignment="Left" Margin="1334,501,0,0" Name="RightArmArmRotateRightBtn" VerticalAlignment="Top" Width="45" Click="RightArmArmRotateRightBtn_Click" />
+            <Button Style="{DynamicResource MetroCircleButtonStyle}" Content="↑" Height="45" HorizontalAlignment="Left" Margin="1271,461,0,0" Name="RightArmArmMoveUpBtn" VerticalAlignment="Top" Width="45" Click="RightArmArmMoveUpBtn_Click" />
+            <Button Style="{DynamicResource MetroCircleButtonStyle}" Content="↓" Height="45" HorizontalAlignment="Left" Margin="1334,461,0,0" Name="RightArmArmMoveDownBtn" VerticalAlignment="Top" Width="45" Click="RightArmArmMoveDownBtn_Click" />
+            <Button Style="{DynamicResource MetroCircleButtonStyle}" Content="↑" Height="45" HorizontalAlignment="Left" Margin="1271,257,0,0" Name="RightArmClawMoveUpBtn" VerticalAlignment="Top" Width="45" Click="RightArmClawMoveUpBtn_Click" />
+            <Button Style="{DynamicResource MetroCircleButtonStyle}" Content="↓" Height="45" HorizontalAlignment="Left" Margin="1334,257,0,0" Name="RightArmClawMoveDownBtn" VerticalAlignment="Top" Width="45" Click="RightArmClawMoveDownBtn_Click" />
+            <Button Style="{DynamicResource MetroCircleButtonStyle}" Content="↑" Height="45" HorizontalAlignment="Left" Margin="1271,367,0,0" Name="RightArmElbowMoveUpBtn" VerticalAlignment="Top" Width="45" Click="RightArmElbowMoveUpBtn_Click" />
+            <Button Style="{DynamicResource MetroCircleButtonStyle}" Content="↓" Height="45" HorizontalAlignment="Left" Margin="1334,367,0,0" Name="RightArmElbowMoveDownBtn" VerticalAlignment="Top" Width="45" Click="RightArmElbowMoveDownBtn_Click" />
+            <Button Content="Open" Height="23" HorizontalAlignment="Left" Margin="1179,246,0,0" Name="RightArmClawOpenBtn" VerticalAlignment="Top" Width="75" Click="RightArmClawOpenBtn_Click" />
+            <Button Content="Close" Height="23" HorizontalAlignment="Left" Margin="1179,277,0,0" Name="RightArmClawCloseBtn" VerticalAlignment="Top" Width="75" Click="RightArmClawCloseBtn_Click" />
+            <Label Content="Seconds" Height="37" HorizontalAlignment="Left" Margin="1238,153,0,0" Name="RightArmLeftArmSecondsLbl" VerticalAlignment="Top" FontSize="20" Width="83" />
+            <TextBox Height="23" HorizontalAlignment="Right" Margin="0,160,18,0" Name="RightArmSecondsTxtBox" Text="1" VerticalAlignment="Top" Width="49" />
+            <Label Content="Left Arm" Height="48" HorizontalAlignment="Left" Margin="18,76,0,0" Name="LeftArmLbl" VerticalAlignment="Top" Width="132" FontSize="24" />
+            <Label Content="Right Arm" Height="58" HorizontalAlignment="Left" Margin="1271,85,0,0" Name="RightArmLbl" VerticalAlignment="Top" FontSize="24" />
+            <TextBox Height="23" Margin="904,698,0,0" Name="iRobotCOMportTxtBox" VerticalAlignment="Top" Text="COM4" HorizontalAlignment="Left" Width="72" />
+            <Label Content="iRobot" Height="48" HorizontalAlignment="Left" Margin="1238,640,0,0" Name="iRobotLbl" VerticalAlignment="Top" FontSize="24" Width="110" />
+            <TextBox Height="23" HorizontalAlignment="Left" Margin="1203,698,0,0" Name="VelocityTxtBox" VerticalAlignment="Top" Width="51" Text="5" />
+            <Button Style="{DynamicResource MetroCircleButtonStyle}" Content="↑" Height="45" HorizontalAlignment="Left" Margin="1261,698,0,0" Name="iRobotForwardBtn" VerticalAlignment="Top" Width="45" Click="iRobotForwardBtn_Click" />
+            <Button Style="{DynamicResource MetroCircleButtonStyle}" Content="↺" Height="45" HorizontalAlignment="Left" Margin="1209,743,0,0" Name="iRobotTurnLeftBtn" VerticalAlignment="Top" Width="45" Click="iRobotTurnLeftBtn_Click" />
+            <Button Style="{DynamicResource MetroCircleButtonStyle}" Content="↻" Height="45" HorizontalAlignment="Left" Margin="1312,743,0,0" Name="iRobotTurnRightBtn" VerticalAlignment="Top" Width="45" Click="iRobotTurnRightBtn_Click" />
+            <Button Style="{DynamicResource MetroCircleButtonStyle}" Content="Stop" Height="45" HorizontalAlignment="Left" Margin="1261,743,0,0" Name="iRobotStopBtn" VerticalAlignment="Top" Width="45" Click="iRobotStopBtn_Click" />
+            <Button Style="{DynamicResource MetroCircleButtonStyle}" Content="↓" Height="45" HorizontalAlignment="Left" Margin="1261,792,0,0" Name="iRobotBackwardBtn" VerticalAlignment="Top" Width="45" Click="iRobotBackwardBtn_Click" />
+            <TextBox Height="26" HorizontalAlignment="Left" Margin="982,800,0,0" Name="iRobotLogTextBox" VerticalAlignment="Top" Width="172" />
+            <MediaElement Margin="540,755,789,49" Name="MediaElement" LoadedBehavior="Manual"></MediaElement>
+            <Button Content="Stop Left Arm" Height="45" HorizontalAlignment="Left" Margin="18,568,0,0" x:Name="LeftArmStopBtn" VerticalAlignment="Top" Width="104" Click="LeftArmStopBtn_Click" />
+            <Image Height="480" Margin="379,76,379,0" Name="KinectImage" Stretch="Fill" VerticalAlignment="Top" />
+            <Button Content="Kinect Up" Height="23" HorizontalAlignment="Left" Margin="379,577,0,0" Name="KinectUpBtn" VerticalAlignment="Top" Width="75" Click="KinectUpBtn_Click" />
+            <Button Content="Kinect Down" Height="23" HorizontalAlignment="Left" Margin="379,615,0,0" Name="KinectDownBtn" VerticalAlignment="Top" Width="75" Click="KinectDownBtn_Click" />
+            <!--<Button x:Name="KinectScreenshotBtn" Style="{StaticResource SnapshotButton}" Content="Screenshot" Width="Auto" Height="Auto" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,595,378,235" Click="KinectScreenshotBtn_Click" />-->
+            <Button Content="Left handshake" Height="45" HorizontalAlignment="Left" Margin="128,569,0,0" x:Name="LeftArmShakeMyHandBtn" VerticalAlignment="Top" Width="109" Click="LeftArmShakeMyHandBtn_Click" />
+            <Button Content="Converse" Height="23" HorizontalAlignment="Left" Margin="294,710,0,0" x:Name="ConverseBtn" VerticalAlignment="Top" Width="75" Click="ConverseBtn_Click" />
+            <Button Content="Right handshake" Height="44" HorizontalAlignment="Left" Margin="1141,573,0,0" x:Name="RightArmShakeMyHandBtn" VerticalAlignment="Top" Width="113" Click="RightArmShakeMyHandBtn_Click" />
+            <Button Content="Stop Right Arm" Height="45" HorizontalAlignment="Left" Margin="1268,572,0,0" x:Name="RightArmStopBtn" VerticalAlignment="Top" Width="120" Click="RightArmStopBtn_Click" />
+            <Controls:ToggleSwitch Header="Kinect Power" IsChecked="False" Margin="514,572,770,170" x:Name="KinectPowerSwitch" OffLabel="OFF" OnLabel="ON" Checked="KinectPowerSwitch_Checked" Unchecked="KinectPowerSwitch_Unchecked" />
+            <Controls:ToggleSwitch Header="Kinect Camera Mode" IsChecked="False" Margin="662,569,564,173" Name="KinectCameraModeSwitch" OffLabel="Color" OnLabel="Depth" Checked="KinectCameraModeSwitch_Checked" Unchecked="KinectCameraModeSwitch_Unchecked" />
+            <Controls:ToggleSwitch Header="iRobot Connect" IsChecked="False" Margin="982,693,244,49" Name="iRobotConnectSwitch" OffLabel="Disconnected" OnLabel="Connected" Checked="iRobotConnectSwitch_Checked" Unchecked="iRobotConnectSwitch_Unchecked"/>
+            <Button Style="{DynamicResource MetroCircleButtonStyle}" Content="Kill All" Height="150" HorizontalAlignment="Left" Margin="196,346,0,0" Name="KillAllSwitchBtn" VerticalAlignment="Top" Width="150" Click="KillAllSwitchBtn_Click" />
+            <Slider Height="23" HorizontalAlignment="Left" Margin="379,651,0,0" Name="KinectAngleSlider" VerticalAlignment="Top" Width="295" Maximum="27" Minimum="-27" PreviewMouseUp="KinectAngleSlider_PreviewMouseUp" Value="-27" />
+            <Controls:ToggleSwitch x:Name="FollowToggleSwitch" Header="Follow" IsChecked="False" Margin="403,685,881,57"  OffLabel="OFF" OnLabel="ON" Checked="FollowToggleSwitch_Checked" Unchecked="FollowToggleSwitch_Unchecked" />
+        </Grid>
+    </Grid>
+    
+</Controls:MetroWindow>

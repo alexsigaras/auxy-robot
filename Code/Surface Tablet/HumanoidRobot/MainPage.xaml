@@ -1,0 +1,336 @@
+﻿<Page
+    x:Class="HumanoidRobot.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:HumanoidRobot"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" Loaded="Page_Loaded">
+    <Page.Resources>
+        <Style x:Key="LeftButtonStyle" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Pressed">
+                                        <Storyboard>
+                                            <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Image2" d:IsOptimized="True"/>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Image2">
+                                                <DiscreteObjectKeyFrame KeyTime="0">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <Visibility>Visible</Visibility>
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill)" Storyboard.TargetName="ellipse">
+                                                <DiscreteObjectKeyFrame KeyTime="0">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <SolidColorBrush Color="White"/>
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Disabled"/>
+                                    <VisualState x:Name="PointerOver"/>
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="FocusStates">
+                                    <VisualState x:Name="Focused"/>
+                                    <VisualState x:Name="PointerFocused"/>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Ellipse x:Name="ellipse" Width="64" VerticalAlignment="Top" StrokeThickness="5" Stroke="White" Height="64" HorizontalAlignment="Left"/>
+                            <Image x:Name="Image" Width="64" VerticalAlignment="Top" Height="64" HorizontalAlignment="Left" Source="Assets/leftArrowWhite.png"/>
+                            <Image x:Name="Image2" Width="64" VerticalAlignment="Top" Height="64" HorizontalAlignment="Left" Source="Assets/leftArrowBlack.png" Opacity="0" Visibility="Collapsed"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="RightButtonStyle" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Pressed">
+                                        <Storyboard>
+                                            <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Image2" d:IsOptimized="True"/>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Image2">
+                                                <DiscreteObjectKeyFrame KeyTime="0">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <Visibility>Visible</Visibility>
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill)" Storyboard.TargetName="ellipse">
+                                                <DiscreteObjectKeyFrame KeyTime="0">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <SolidColorBrush Color="White"/>
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Disabled"/>
+                                    <VisualState x:Name="PointerOver"/>
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="FocusStates">
+                                    <VisualState x:Name="Focused"/>
+                                    <VisualState x:Name="PointerFocused"/>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Ellipse x:Name="ellipse" Width="64" VerticalAlignment="Top" StrokeThickness="5" Stroke="White" Height="64" HorizontalAlignment="Left"/>
+                            <Image x:Name="Image" Width="64" VerticalAlignment="Top" Height="64" HorizontalAlignment="Left" Source="Assets/rightArrowWhite.png"/>
+                            <Image x:Name="Image2" Width="64" VerticalAlignment="Top" Height="64" HorizontalAlignment="Left" Source="Assets/rightArrowBlack.png" Opacity="0" Visibility="Collapsed"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="UpButtonStyle" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Pressed">
+                                        <Storyboard>
+                                            <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Image2" d:IsOptimized="True"/>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Image2">
+                                                <DiscreteObjectKeyFrame KeyTime="0">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <Visibility>Visible</Visibility>
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill)" Storyboard.TargetName="ellipse">
+                                                <DiscreteObjectKeyFrame KeyTime="0">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <SolidColorBrush Color="White"/>
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Disabled"/>
+                                    <VisualState x:Name="PointerOver"/>
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="FocusStates">
+                                    <VisualState x:Name="Focused"/>
+                                    <VisualState x:Name="PointerFocused"/>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Ellipse x:Name="ellipse" Width="64" VerticalAlignment="Top" StrokeThickness="5" Stroke="White" Height="64" HorizontalAlignment="Left"/>
+                            <Image x:Name="Image" Width="64" VerticalAlignment="Top" Height="64" HorizontalAlignment="Left" Source="Assets/upArrowWhite.png"/>
+                            <Image x:Name="Image2" Width="64" VerticalAlignment="Top" Height="64" HorizontalAlignment="Left" Source="Assets/upArrowBlack.png" Opacity="0" Visibility="Collapsed"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="DownButtonStyle" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Pressed">
+                                        <Storyboard>
+                                            <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Image2" d:IsOptimized="True"/>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Image2">
+                                                <DiscreteObjectKeyFrame KeyTime="0">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <Visibility>Visible</Visibility>
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill)" Storyboard.TargetName="ellipse">
+                                                <DiscreteObjectKeyFrame KeyTime="0">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <SolidColorBrush Color="White"/>
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Disabled"/>
+                                    <VisualState x:Name="PointerOver"/>
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="FocusStates">
+                                    <VisualState x:Name="Focused"/>
+                                    <VisualState x:Name="PointerFocused"/>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Ellipse x:Name="ellipse" Width="64" VerticalAlignment="Top" StrokeThickness="5" Stroke="White" Height="64" HorizontalAlignment="Left"/>
+                            <Image x:Name="Image" Width="64" VerticalAlignment="Top" Height="64" HorizontalAlignment="Left" Source="Assets/downArrowWhite.png"/>
+                            <Image x:Name="Image2" Width="64" VerticalAlignment="Top" Height="64" HorizontalAlignment="Left" Source="Assets/downArrowBlack.png" Opacity="0" Visibility="Collapsed"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="StopButtonStyle" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Pressed">
+                                        <Storyboard>
+                                            <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Image2" d:IsOptimized="True"/>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Image2">
+                                                <DiscreteObjectKeyFrame KeyTime="0">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <Visibility>Visible</Visibility>
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill)" Storyboard.TargetName="ellipse">
+                                                <DiscreteObjectKeyFrame KeyTime="0">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <SolidColorBrush Color="White"/>
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Disabled"/>
+                                    <VisualState x:Name="PointerOver"/>
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="FocusStates">
+                                    <VisualState x:Name="Focused"/>
+                                    <VisualState x:Name="PointerFocused"/>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Ellipse x:Name="ellipse" Width="64" VerticalAlignment="Top" StrokeThickness="5" Stroke="White" Height="64" HorizontalAlignment="Left"/>
+                            <Image x:Name="Image" Width="64" VerticalAlignment="Top" Height="64" HorizontalAlignment="Left" Source="Assets/StopWhite.png"/>
+                            <Image x:Name="Image2" Width="64" VerticalAlignment="Top" Height="64" HorizontalAlignment="Left" Source="Assets/StopBlack.png" Opacity="0" Visibility="Collapsed"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="StopBigButtonStyle" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Pressed">
+                                        <Storyboard>
+                                            <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Image2" d:IsOptimized="True"/>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Image2">
+                                                <DiscreteObjectKeyFrame KeyTime="0">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <Visibility>Visible</Visibility>
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill)" Storyboard.TargetName="ellipse">
+                                                <DiscreteObjectKeyFrame KeyTime="0">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <SolidColorBrush Color="White"/>
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Disabled"/>
+                                    <VisualState x:Name="PointerOver"/>
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="FocusStates">
+                                    <VisualState x:Name="Focused"/>
+                                    <VisualState x:Name="PointerFocused"/>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Ellipse x:Name="ellipse" Width="173" VerticalAlignment="Top" StrokeThickness="10" Stroke="White" Height="168" HorizontalAlignment="Left"/>
+                            <Image x:Name="Image" Width="Auto" VerticalAlignment="Top" Height="Auto" HorizontalAlignment="Left" Source="Assets/StopWhite.png"/>
+                            <Image x:Name="Image2" Width="Auto" VerticalAlignment="Top" Height="Auto" HorizontalAlignment="Left" Source="Assets/StopBlack.png" Opacity="0" Visibility="Collapsed"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+
+    <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+        <Image x:Name="KinectImage" Height="480" Margin="363,20,363,0" VerticalAlignment="Top"/>
+        <Button  x:Name="StopBtn" Content="Stop" HorizontalAlignment="Left" Margin="84,69,0,0" VerticalAlignment="Top" Height="168" Width="173" Style="{StaticResource StopBigButtonStyle}" Click="StopBtn_Click"/>
+        <Button x:Name="LeftHandshakeBtn" Content="Left Handshake" HorizontalAlignment="Left" Margin="264,633,0,0" VerticalAlignment="Top" Click="LeftHandshakeBtn_Click"/>
+        <Button x:Name="RightHandshakeBtn" Content="Right Handshake" HorizontalAlignment="Left" Margin="914,633,0,0" VerticalAlignment="Top" Click="RightHandshakeBtn_Click"/>
+        <Button x:Name="FlashEyesBtn" Content="Flash Eyes" HorizontalAlignment="Left" Margin="435,633,0,0" VerticalAlignment="Top" Width="111" Click="FlashEyesBtn_Click"/>
+        <ToggleSwitch x:Name="FollowSwitch" Header="Follow" HorizontalAlignment="Left" Margin="275,683,0,0" VerticalAlignment="Top" OffContent="No" OnContent="Yes" Toggled="FollowSwitch_Toggled"/>
+        <Button x:Name="DanceBtn" Content="Dance" HorizontalAlignment="Left" Margin="653,633,0,0" VerticalAlignment="Top" Click="DanceBtn_Click"/>
+        <ComboBox x:Name="DanceSongComboBox" HorizontalAlignment="Left" Margin="759,633,0,0" VerticalAlignment="Top" Width="150" SelectedIndex="0">
+            <x:String>Gangnam Style</x:String>
+            <x:String>Fame</x:String>
+            <x:String>Dancing Queen</x:String>
+        </ComboBox>
+        <ToggleSwitch x:Name="LeftEyeSwitch" Header="Left Eye" HorizontalAlignment="Left" Margin="84,267,0,0" VerticalAlignment="Top" OffContent="Closed" OnContent="Open" Toggled="LeftEyeSwitch_Toggled_1"/>
+        <ToggleSwitch x:Name="RightEyeSwitch" Header="Right Eye" HorizontalAlignment="Left" Margin="1128,267,0,0" VerticalAlignment="Top" OffContent="Closed" OnContent="Open" Toggled="RightEyeSwitch_Toggled_1"/>
+        <Image x:Name="LeftGrippersIcon" HorizontalAlignment="Left" Height="32" Margin="37,476,0,0" VerticalAlignment="Top" Width="32" Source="Assets/Grippers.png"/>
+        <Image x:Name="LeftShoulderIcon" HorizontalAlignment="Left" Height="32" Margin="122,476,0,0" VerticalAlignment="Top" Width="32" Source="Assets/Shoulder.png"/>
+        <Image x:Name="LeftArmIcon" HorizontalAlignment="Left" Height="32" Margin="206,476,0,0" VerticalAlignment="Top" Width="32" Source="Assets/Arm.png" RenderTransformOrigin="0.453,2.953"/>
+        <Image x:Name="LeftArmIcon2" HorizontalAlignment="Left" Height="32" Margin="37,712,0,0" VerticalAlignment="Top" Width="32" Source="Assets/Arm.png"/>
+        <Image x:Name="RightGrippersIcon" HorizontalAlignment="Left" Height="32" Margin="1106,476,0,0" VerticalAlignment="Top" Width="32" Source="Assets/Grippers.png"/>
+        <Image x:Name="RightShoulderIcon" HorizontalAlignment="Left" Height="32" Margin="1197,476,0,0" VerticalAlignment="Top" Width="32" Source="Assets/Shoulder.png"/>
+        <Image x:Name="RightHandIcon" HorizontalAlignment="Left" Height="32" Margin="1287,476,0,0" VerticalAlignment="Top" Width="32" Source="Assets/Arm.png" RenderTransformOrigin="0.99,-0.146"/>
+        <Image x:Name="RightHandIcon2" HorizontalAlignment="Left" Height="32" Margin="1106,712,0,0" VerticalAlignment="Top" Width="32" Source="Assets/Arm.png"/>
+        <MediaElement x:Name="MediaElement" HorizontalAlignment="Left" Height="9" Margin="363,10,0,0" VerticalAlignment="Top" Width="640"/>
+        <Button Style="{StaticResource UpButtonStyle}" x:Name="iCreateMoveForwardBtn" Content="↑" HorizontalAlignment="Left" Margin="1201,10,0,0" VerticalAlignment="Top" Click="iCreateMoveForwardBtn_Click" Width="71" Height="63" FontSize="24" FontFamily="Segoe UI Symbol"/>
+        <Button Style="{StaticResource StopButtonStyle}" x:Name="iCreateMoveStopBtn" Content="Stop" HorizontalAlignment="Left" Margin="1201,91,0,0" VerticalAlignment="Top" Click="iCreateStopBtn_Click" FontSize="24" FontFamily="Segoe UI Symbol" Width="69"/>
+        <Button Style="{StaticResource DownButtonStyle}" x:Name="iCreateMoveBackwardBtn" Content="↓" HorizontalAlignment="Left" Margin="1201,173,0,0" VerticalAlignment="Top" Click="iCreateMoveBackwardBtn_Click" FontSize="24" FontFamily="Segoe UI Symbol" Width="69" Height="64"/>
+        <Button Style="{StaticResource LeftButtonStyle}" x:Name="iCreateTurnLeftBtn" Content="←" HorizontalAlignment="Left" Margin="1110,91,0,0" VerticalAlignment="Top" Click="iCreateTurnLeftBtn_Click" FontSize="90" FontFamily="Segoe UI Symbol" Width="65" Height="64"/>
+        <Button Style="{StaticResource RightButtonStyle}" x:Name="iCreateTurnRightBtn" Content="→" HorizontalAlignment="Left" Margin="1287,91,0,0" VerticalAlignment="Top" Click="iCreateTurnRightBtn_Click" FontSize="24" FontFamily="Segoe UI Symbol" Width="69"/>
+        <Button Style="{StaticResource UpButtonStyle}" x:Name="RightGrippersUpBtn" Content="↑" HorizontalAlignment="Left" Margin="1085,528,0,0" VerticalAlignment="Top" Width="71" Height="63" FontSize="24" FontFamily="Segoe UI Symbol" Click="RightGrippersUpBtn_Click"/>
+        <Button Style="{StaticResource DownButtonStyle}" x:Name="RightGrippersDownBtn" Content="↓" HorizontalAlignment="Left" Margin="1085,612,0,0" VerticalAlignment="Top" FontSize="24" FontFamily="Segoe UI Symbol" Width="69" Height="64" Click="RightGrippersDownBtn_Click" />
+        <Button Style="{StaticResource UpButtonStyle}" x:Name="RightElbowUpBtn" Content="↑" HorizontalAlignment="Left" Margin="1177,528,0,0" VerticalAlignment="Top" Click="RightElbowUpBtn_Click" Width="71" Height="63" FontSize="24" FontFamily="Segoe UI Symbol"/>
+        <Button Style="{StaticResource DownButtonStyle}" x:Name="RightElbowDownBtn" Content="↓" HorizontalAlignment="Left" Margin="1177,612,0,0" VerticalAlignment="Top" Click="RightElbowDownBtn_Click" FontSize="24" FontFamily="Segoe UI Symbol" Width="69" Height="64"/>
+        <Button Style="{StaticResource UpButtonStyle}" x:Name="RightArmUpBtn" Content="↑" HorizontalAlignment="Left" Margin="1266,528,0,0" VerticalAlignment="Top" Click="RightArmUpBtn_Click" Width="71" Height="63" FontSize="24" FontFamily="Segoe UI Symbol"/>
+        <Button Style="{StaticResource DownButtonStyle}" x:Name="RightArmDownBtn" Content="↓" HorizontalAlignment="Left" Margin="1266,612,0,0" VerticalAlignment="Top" Click="RightArmDownBtn_Click" FontSize="24" FontFamily="Segoe UI Symbol" Width="69" Height="64"/>
+        <Button Style="{StaticResource LeftButtonStyle}" x:Name="RightArmRotateLeftBtn" Content="←" HorizontalAlignment="Left" Margin="1177,687,0,0" VerticalAlignment="Top" Click="RightArmRotateLeftBtn_Click" FontSize="70" FontFamily="Segoe UI Symbol" Width="69" Height="64"/>
+        <Button Style="{StaticResource RightButtonStyle}" x:Name="RightArmRotateRightBtn" Content="→" HorizontalAlignment="Left" Margin="1266,687,0,0" VerticalAlignment="Top" Click="RightArmRotateRightBtn_Click" FontSize="24" FontFamily="Segoe UI Symbol" Width="69" Height="64"/>
+        <Button Style="{StaticResource UpButtonStyle}" x:Name="LeftGrippersUpBtn" Content="↑" HorizontalAlignment="Left" Margin="13,528,0,0" VerticalAlignment="Top" Click="LeftGrippersUpBtn_Click" Width="71" Height="63" FontSize="24" FontFamily="Segoe UI Symbol"/>
+        <Button Style="{StaticResource DownButtonStyle}" x:Name="LeftGrippersDownBtn" Content="↓" HorizontalAlignment="Left" Margin="13,612,0,0" VerticalAlignment="Top" FontSize="24" FontFamily="Segoe UI Symbol" Width="69" Height="64" Click="LeftGrippersDownBtn_Click"/>
+        <Button Style="{StaticResource UpButtonStyle}" x:Name="LeftElbowUpBtn" Content="↑" HorizontalAlignment="Left" Margin="99,528,0,0" VerticalAlignment="Top" Width="71" Height="63" FontSize="24" FontFamily="Segoe UI Symbol" Click="LeftElbowUpBtn_Click"/>
+        <Button Style="{StaticResource DownButtonStyle}" x:Name="LeftElbowDownBtn" Content="↓" HorizontalAlignment="Left" Margin="99,612,0,0" VerticalAlignment="Top" FontSize="24" FontFamily="Segoe UI Symbol" Width="69" Height="64" Click="LeftElbowDownBtn_Click"/>
+        <Button Style="{StaticResource UpButtonStyle}" x:Name="LeftArmUpBtn" Content="↑" HorizontalAlignment="Left" Margin="188,528,0,0" VerticalAlignment="Top" Width="71" Height="63" FontSize="24" FontFamily="Segoe UI Symbol" Click="LeftArmUpBtn_Click"/>
+        <Button Style="{StaticResource DownButtonStyle}" x:Name="LeftArmDownBtn" Content="↓" HorizontalAlignment="Left" Margin="188,612,0,0" VerticalAlignment="Top" FontSize="24" FontFamily="Segoe UI Symbol" Width="69" Height="64" Click="LeftArmDownBtn_Click"/>
+        <Button Style="{StaticResource LeftButtonStyle}" x:Name="LeftArmRotateLeftBtn" Content="" HorizontalAlignment="Left" Margin="89,687,0,0" VerticalAlignment="Top" FontSize="70" FontFamily="Segoe UI Symbol" Width="64" Height="64" Click="LeftArmRotateLeftBtn_Click"/>
+        <Button Style="{StaticResource RightButtonStyle}" x:Name="LeftArmRotateRightBtn" Content="→" HorizontalAlignment="Left" Margin="188,687,0,0" VerticalAlignment="Top" FontSize="24" FontFamily="Segoe UI Symbol" Width="69" Height="64" Click="LeftArmRotateRightBtn_Click"/>
+        <ToggleSwitch x:Name="iRobotConnectSwitch" Header="iRobot Create" HorizontalAlignment="Left" Margin="786,683,0,0" VerticalAlignment="Top" OffContent="Disconnected" OnContent="Connected" Toggled="iRobotConnectSwitch_Toggled"/>
+        <ComboBox x:Name="COMPortComboBox" HorizontalAlignment="Left" Margin="970,711,0,0" VerticalAlignment="Top" Width="93" SelectedIndex="3">
+            <x:String>COM1</x:String>
+            <x:String>COM2</x:String>
+            <x:String>COM3</x:String>
+            <x:String>COM4</x:String>
+            <x:String>COM5</x:String>
+            <x:String>COM6</x:String>
+            <x:String>COM7</x:String>
+            <x:String>COM8</x:String>
+            <x:String>COM9</x:String>
+            <x:String>COM10</x:String>
+        </ComboBox>
+        <ToggleSwitch x:Name="KinectPowerSwitch" Header="Kinect Power" HorizontalAlignment="Stretch" Margin="363,517,849,0" VerticalAlignment="Top" OffContent="Off" OnContent="On" Toggled="KinectPowerSwitch_Toggled"/>
+        <ToggleSwitch x:Name="KinectCameraModeSwitch" Header="Kinect Camera Mode" HorizontalAlignment="Stretch" Margin="547,517,665,0" VerticalAlignment="Top" OffContent="Color" OnContent="Depth" Toggled="KinectCameraModeSwitch_Toggled"/>
+        <Slider x:Name="KinectTiltSlider" HorizontalAlignment="Left" Margin="1061,10,0,0" VerticalAlignment="Top" Width="44" Orientation="Vertical" Height="490" Minimum="-27" Maximum="27" Value="-27" PointerCaptureLost="KinectTiltSlider_PointerCaptureLost" />
+        <Button  x:Name="LeftGrippersOpenBtn" Content="Open" HorizontalAlignment="Left" Margin="58,389,0,0" VerticalAlignment="Top" Width="105" Height="63" FontSize="24" FontFamily="Segoe UI Symbol" Click="LeftGrippersOpenBtn_Click" RenderTransformOrigin="0.5,0.5"/>
+        <Button x:Name="LeftGrippersClose" Content="Close" HorizontalAlignment="Left" Margin="180,389,0,0" VerticalAlignment="Top" Width="99" Height="63" FontSize="24" FontFamily="Segoe UI Symbol" RenderTransformOrigin="0.5,0.5" Click="LeftGrippersClose_Click"/>
+        <Button x:Name="RightGrippersOpenBtn" Content="Open" HorizontalAlignment="Left" Margin="1121.39,391.939,0,0" VerticalAlignment="Top" Width="102.312" Height="63" FontSize="24" FontFamily="Segoe UI Symbol" Click="RightGrippersOpenBtn_Click" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto">
+            <Button.RenderTransform>
+                <CompositeTransform Rotation="0.77"/>
+            </Button.RenderTransform>
+        </Button>
+        <Button x:Name="RightGrippersClose" Content="Close" HorizontalAlignment="Left" Margin="1240,389,0,0" VerticalAlignment="Top" Width="109" Height="63" FontSize="24" FontFamily="Segoe UI Symbol" RenderTransformOrigin="0.5,0.5" Click="RightGrippersClose_Click"/>
+        <Button Content="Show Image" HorizontalAlignment="Left" Margin="888,528,0,0" VerticalAlignment="Top" Click="Button_Click"/>
+    </Grid>
+</Page>
